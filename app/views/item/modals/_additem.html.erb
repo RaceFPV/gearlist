@@ -1,0 +1,87 @@
+<!-- Modal -->
+<div class="modal fade" id="addasset" tabindex="-1" role="dialog" aria-labelledby="addassetLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="addassetLabel">Add a new asset</h4>
+      </div>
+		<% @item = Item.new %>
+		<%= form_for @item, url: create_item_path, method: :post, html: { class: "", id: "" } do |f| %>
+      <div class="modal-body add-modal-body" align="center">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<%= f.label :assettag, "Asset Tag:" %>
+						<%= f.text_field :assettag, class: 'form-control', value: Item.generatetag, readonly: true %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<%= f.select :category, options_for_select(["Barcode Scanners","Camera","Workstations","Laptops","Monitors","Printers","Phones","Peripherals","Routers","Switches","Servers","Tablet","Video Equip","Wireless Access Points"]), {include_blank: "Select A Device Category"}, class: "form-control", required: true %>	
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+					<%= f.select :division, options_for_select(Division.pluck(:name)), {include_blank: "Select A Division"}, class: "form-control", required: true %>	
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+					<%= f.text_field :assigneduser, placeholder: "Assigned To", class: "form-control", required: true %>	
+					</div>
+				</div>
+				<br/>
+				<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+					Add Additional Details
+				</button>
+				<div class="collapse panel panel-default" id="collapseExample" style="margin-bottom: 0px;margin-left: -10px; margin-right: -10px; margin-top: 3px; background-color: #666;">
+				<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-4">
+						<%= f.text_field :os, placeholder: "OS (if applicable)", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :model, placeholder: "Asset Model", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :brand, placeholder: "Brand", class: 'form-control' %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-4">
+						<%= f.text_field :hostname, placeholder: "Hostname", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :ponumber, placeholder: "PO Number", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :servicetag, placeholder: "Service Tag", class: 'form-control' %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4">
+						<%= f.text_field :QATag, placeholder: "QA Tag Number", class: 'form-control' %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<%= f.text_area :notes, placeholder: "Notes", class: 'form-control' %>
+					</div>
+				</div>
+				</div>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <%= f.submit "Save", class: "btn btn-success" %>
+      </div>
+			<% end %>
+    </div>
+  </div>
+</div>

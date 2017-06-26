@@ -1,0 +1,21 @@
+<% @body_id = "signinpage" %>
+<div class="row" align="center" style="margin-top: 10%">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put, :class => 'form-2' } do |f| %>
+      <%= f.hidden_field :invitation_token %>
+      <h1><span class="log-in">Set your new password</span></h1>
+      <%= devise_error_messages! %>
+      <br/>
+      <% if f.object.class.require_password_on_accepting %>
+        <p><%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %></p>
+
+        <p><%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %></p>
+      <% end %>
+
+      <p class="clearfix" align="center"><%= f.submit "Continue" %></p>
+    <% end %>
+
+  </div>
+</div>

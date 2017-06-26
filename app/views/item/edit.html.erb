@@ -1,0 +1,81 @@
+<% @body_id = "signinpage" %>
+<div class="row">
+  <div class="col-sm-12">
+    <h2 align="center" style="color: #ccc;">
+      <%= @item.assettag %>
+    </h2>
+  </div>
+</div>
+<br/>
+<div class="panel panel-default">
+<div class="panel-body">
+<%= form_for @item, url: update_item_path(params[:id]), method: :patch, html: { class: "", id: "" } do |f| %>
+      <div align="center">
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<%= f.label :assettag, "Asset Tag:" %>
+						<%= f.text_field :assettag, class: 'form-control', value: @item.assettag, readonly: true %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<%= f.select :category, options_for_select(["Barcode Scanners","Camera","Workstations","Laptops","Monitors","Printers","Phones","Peripherals","Routers","Switches","Servers","Tablet","Video Equip","Wireless Access Points"], selected: @item.category), {required: true}, class: "form-control" %>	
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+					<%= f.select :division, options_for_select(Division.pluck(:name),selected: @item.division), {required: true}, class: "form-control"  %>	
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+					<%= f.text_field :assigneduser, placeholder: "Assigned To", class: "form-control", required: true %>	
+					</div>
+				</div>
+        <br/>
+				<div class="panel panel-default">
+				<div class="panel-body">
+				<div class="row">
+					<div class="col-sm-4">
+						<%= f.text_field :os, placeholder: "OS (if applicable)", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :model, placeholder: "Asset Model", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :brand, placeholder: "Brand", class: 'form-control' %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-4">
+						<%= f.text_field :hostname, placeholder: "Hostname", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :ponumber, placeholder: "PO Number", class: 'form-control' %>
+					</div>
+					<div class="col-sm-4">
+						<%= f.text_field :servicetag, placeholder: "Service Tag", class: 'form-control' %>
+					</div>
+				</div>
+				<br/>
+				<div class="row">
+					<div class="col-sm-4 col-sm-offset-4">
+						<%= f.text_field :QATag, placeholder: "QA Tag Number", class: 'form-control' %>
+					</div>
+				<br/><br/>
+				<div class="row">
+					<div class="col-sm-8 col-sm-offset-2">
+						<%= f.text_area :notes, placeholder: "Notes", class: 'form-control' %>
+					</div>
+				</div>
+				</div>
+				</div>
+        <%= f.submit "Update", class: "btn btn-success btn-lg" %>
+      </div>
+		<% end %>
+  </div>
+</div>

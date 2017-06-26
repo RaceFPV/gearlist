@@ -1,0 +1,15 @@
+<% @body_id = "signinpage" %>
+<div class="row" align="center" style="margin-top: 10%">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post, :class => 'form-2'} do |f| %>
+    <h1><span class="log-in">   Invite a new user via email</span></h1>
+    <%= devise_error_messages! %>
+    <% resource.class.invite_key_fields.each do |field| -%>
+      <%= f.text_field field, class: 'form-control', placeholder: "example@example.com" %>
+    <% end -%>
+
+    <p class="clearfix" align="center"><%= f.submit t("devise.invitations.new.submit_button"), class: '' %></p>
+  <% end %>
+
+  </div>
+</div>

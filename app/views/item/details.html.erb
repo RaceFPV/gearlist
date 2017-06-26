@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-sm-1">
+    <%= link_to "Delete", delete_item_path(@item.assettag), method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+  </div>
+  <div class="col-sm-6 col-sm-offset-2">
+    <h2 align="center">
+      <%= @item.assettag %>
+    </h2>
+  </div>
+  <div class="col-sm-2 col-sm-offset-1" align="right">
+    <%= link_to "Clone to new", clone_item_path(@item.assettag), class: "btn btn-default" %> | 
+    <%= link_to "Edit", edit_item_path(@item.assettag), class: "btn btn-primary" %>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Quick Stats</h3>
+      </div>
+      <div class="panel-body dashboard-panel" align="center">
+        <p>
+          <b>Asset tag: </b><%= @item.assettag %>
+        </p>
+        <p>
+          <b>Category: </b><%= @item.category %>
+        </p>
+        <p>
+          <b>Assigned to: </b><%= @item.assigneduser %>
+        </p>
+        <p>
+          <b>Service tag: </b><%= @item.servicetag %>
+        </p>
+        <p>
+          <b>Hostname: </b><%= @item.hostname %>
+        </p>
+        <p>
+          <b>PO Number: </b><%= @item.ponumber %>
+        </p>
+        <p>
+          <b>Division: </b><%= @item.division %>
+        </p>
+        <p>
+          <b>Brand: </b><%= @item.brand %>
+        </p>
+        <p>
+          <b>Model: </b><%= @item.model %>
+        </p>
+        <p>
+          <b>Model Code: </b><%= @item.modelcode %>
+        </p>
+        <p>
+          <b>QA Tag: </b><%= @item.QATag %>
+        </p>
+        <p>
+          <b>Created: </b><%= time_ago_in_words(@item.created_at) %> ago
+        </p>
+        <p>
+          <b>Last Modified: </b><%= time_ago_in_words(@item.updated_at) %> ago
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-8">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Notes</h3>
+      </div>
+      <div class="panel-body dashboard-panel" align="center">
+        <p style="padding-top: 5px; padding-bottom: 5px;">
+          <%= @item.notes %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

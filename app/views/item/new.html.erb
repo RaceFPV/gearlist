@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3" align="center">
+    <h1>
+       What would you like to add?
+    </h1>
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#addasset">
+      New asset
+    </button>
+  </div>
+</div>
+
+			
+<!-- load the overlay modals -->
+
+<%= render partial: "asset/modals/addasset" %>
+
+		<script type="text/javascript">
+      //for pretty dropdowns
+			$( document ).ready(function() {
+				$( '#cd-dropdown' ).dropdown( {
+					gutter : 5
+				} );
+			});
+		</script>

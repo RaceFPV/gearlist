@@ -1,0 +1,20 @@
+/* put global css here instead of application.scss for cleaner code */
+
+@import url(http://fonts.googleapis.com/css?family=Bree+Serif);
+
+.navbar-right > li > a {
+    transition: 0.4s all;
+}
+
+body {
+  padding-top: 60px;
+  font-family: 'Bree Serif', serif !important;
+}
+
+.add-modal-body {
+  background-color: #696a6e;
+}
+
+.container {
+  width: 98vw !important;
+}

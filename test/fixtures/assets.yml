@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room_references: MyString
+  name: MyText
+  category: MyText
+  model: MyText
+  os: MyText
+  processor: MyText
+  assettag: MyText
+  hostname: MyText
+  ponumber: MyText
+  notes: MyText
+  servicetag: MyText
+
+two:
+  room_references: MyString
+  name: MyText
+  category: MyText
+  model: MyText
+  os: MyText
+  processor: MyText
+  assettag: MyText
+  hostname: MyText
+  ponumber: MyText
+  notes: MyText
+  servicetag: MyText
