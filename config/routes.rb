@@ -15,4 +15,8 @@ Rails.application.routes.draw do
   match 'items/:id/delete', to: 'item#delete', via: 'delete', as: 'delete_item'
   match 'reports', to: 'reports#index', via: 'get', as: 'reports'
   match 'reports/assigned', to: 'reports#assigned', via: 'get', as: 'reports_assigned'
+  match 'divisions', to: 'division#index', via: 'get', as: 'divisions'
+  match 'divisions/new', to: 'division#new', via: 'get', as: 'new_division'
+  match 'divisions/create', to: 'division#create', via: 'post', as: 'create_division'
+  match 'divisions/:id/delete', to: 'division#delete', via: 'delete', as: 'delete_division'
 end
