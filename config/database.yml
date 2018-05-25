@@ -9,7 +9,7 @@ development:
   database: gearlist_development
   pool: 5
   username: gearlist
-  password: ENV["GEARLISTPASSWORD"]
+  password: <%= ENV['GEARLISTPASSWORD'] %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -20,7 +20,7 @@ test:
   database: gearlist_test
   pool: 5
   username: gearlist
-  password: ENV["GEARLISTPASSWORD"]
+  password: <%= ENV['GEARLISTPASSWORD'] %>
 
 production:
   adapter: postgresql
@@ -28,4 +28,4 @@ production:
   database: gearlist_production
   pool: 5
   username: gearlist
-  password: ENV["GEARLISTPASSWORD"]
+  password: <%= ENV['GEARLISTPASSWORD'] %>

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20161214220927) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "divisions", force: :cascade do |t|
     t.text     "name"
     t.text     "location"
@@ -32,7 +35,7 @@ ActiveRecord::Schema.define(version: 20161214220927) do
     t.text     "division"
   end
 
-  add_index "employees", ["room_id"], name: "index_employees_on_room_id"
+  add_index "employees", ["room_id"], name: "index_employees_on_room_id", using: :btree
 
   create_table "items", force: :cascade do |t|
     t.string   "room_references"
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 20161214220927) do
     t.text     "QATag"
   end
 
-  add_index "items", ["room_id"], name: "index_items_on_room_id"
+  add_index "items", ["room_id"], name: "index_items_on_room_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.text     "name"
@@ -101,11 +104,11 @@ ActiveRecord::Schema.define(version: 20161214220927) do
     t.integer  "invitations_count",      default: 0
   end
 
-  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true
-  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count"
-  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id"
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
+  add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

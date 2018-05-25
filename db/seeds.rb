@@ -1,8 +1,10 @@
 unless Division.count > 1
-  divisionlist = ENV["GEARLISTDIVISIONLIST"]
-
-  divisionlist.each do |name|
-    Division.create( name: name )
+  if ENV["GEARLISTDIVISIONLIST"]
+    divisionlist = ENV["GEARLISTDIVISIONLIST"]
+  
+    divisionlist.each do |name|
+      Division.create( name: name )
+    end
   end
 end
 

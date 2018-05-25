@@ -17,7 +17,7 @@
 //= require dataTables/jquery.dataTables
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require data-confirm-modal
-//= require Chart
+//= require Chart.min
 //= require_tree .
 
 dataConfirmModal.setDefaults({
